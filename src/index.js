@@ -1,22 +1,31 @@
 import "./style.css";
  
-const createListTool = function (type){
-    return function (name){
-        return {toString: `"${name}" is a ${type}`, name: name, type: type, elements_array: []};
-    };
-};
-
-const createToDoList = createListTool("toDoList");
-const createNoteList = createListTool("noteList");
-const createCheckList = createListTool("chekList");
-
-const baseElement = function(title, type){
+const baseElement = function(title, type = ""){
+    const id = crypto.randomUUID();
     function toString(){
-        return `${this.title} is a ${this.type}`
+        return `${this.title} is a ${this.type}\nId: ${id}`
     }
 
-    return {title, id: crypto.randomUUID(), type, toString};
+    return {title, id, type, toString};
 }
+
+const baseList = function(title, type, list){
+    const myobj = baseElement(title, type);
+    if(typeof list !== typeof {}){
+        throw new Error("baselist() takes only objects as an argument");
+    }
+    myobj.list = list;
+    myobj.toString = () => `${myobj.title} is a ${myobj.type}\nId: ${myobj.id}\nContains: ${Object.entries(myobj.list).length} elements`;
+    return myobj;
+};
+
+const createtoDoList = (title, list = {}) => baseList(title, "todoList", list);
+const createNoteList = (title, list = {}) => baseList(title, "noteList", list);
+const createCheckList = (title, list = {}) => baseList(title, "checkList", list);
+
+console.log(createCheckList("mycheckList").toString());
+
+
 
 const createCheckElement = function(title, description = ""){;
     const myobj = {description};
