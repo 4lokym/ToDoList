@@ -2,19 +2,12 @@ import "./style.css";
 import * as ext from "./barrel.js"
  
 
+const myNote = ext.createNoteElement("myNote", "hellooooooooo worldddddd");
 
-
-
-
-
-console.log(ext.createCheckList("mycheckList").toString());
-
-
-
-
-
-
-
-console.log(ext.createNoteElement("myNoteElement").toString());
-console.log(ext.createCheckElement("myCheckElement").toString());
-console.log(ext.createTodoElement("myTOdolement", "", null, "high").toString());
+const my_list = ext.createNoteList("my_list");
+console.log(my_list.toString());
+my_list.addToList(myNote);
+console.log(my_list.toString());
+console.log(my_list.list[myNote.id].toString());
+my_list.removeFromList_id(myNote.id);
+console.log(my_list.toString());
