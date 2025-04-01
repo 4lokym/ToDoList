@@ -18,11 +18,19 @@ export const createCheckElement = function(title, description = ""){;
 
 export const createTodoElement = function(title, description = "", dueDate = null, priority = "low"){;
     const parentObj = createCheckElement(title, description);
+    const done = false;
     const type = "todoElement";
 
+    const setDone = function(){
+        done = true;
+    }
+    const setNotdone = function(){
+        done = false;
+    } 
+
     parentObj.toString = function(){
-           return `${parentObj.title} is a ${parentObj.type}\nId: ${parentObj.getId()}\nDueDate: ${parentObj.dueDate}\nPriority: ${parentObj.priority}\nDescription: ${parentObj.description}`
+           return `${parentObj.title} is a ${parentObj.type}\nId: ${parentObj.getId()}\nDueDate: ${parentObj.dueDate}\nDone: ${done}\nPriority: ${parentObj.priority}\nDescription: ${parentObj.description}`
         }
 
-    return Object.assign(parentObj, {dueDate, priority, type});
+    return Object.assign(parentObj, {dueDate, priority, type, setDone, setNotdone});
 }
