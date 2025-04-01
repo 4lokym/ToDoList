@@ -2,9 +2,9 @@ import "./style.css";
 import * as ext from "./barrel.js"
  
 
-const myNote = ext.createTodoElement("myNote", "hellooooooooo worldddddd");
+const myNote = ext.createNoteElement("myNote", "hellooooooooo worldddddd");
 
-const my_list = ext.createTodoList("my_list");
+const my_list = ext.createNoteList("my_list");
 console.log(my_list.toString());
 my_list.addToList(myNote);
 console.log(my_list.toString());

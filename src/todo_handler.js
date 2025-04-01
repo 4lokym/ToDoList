@@ -6,24 +6,23 @@ export const createTodoList = (title, list = {}) => ext.baseList(title, "todoLis
 
 
 export const createCheckElement = function(title, description = ""){;
-    const myobj = {description};
+    const parentObj = ext.baseElement(title, "checkElement");
 
-    Object.assign(myobj, ext.baseElement(title, "checkElement"))
-
-    myobj.toString = function(){
-        return `${myobj.title} is a ${myobj.type}\nId: ${myobj.getId()}\nDescription: ${myobj.description}`
+    parentObj.toString = function(){
+        return `${parentObj.title} is a ${parentObj.type}\nId: ${parentObj.getId()}\nDescription: ${description}`
     }
     
-    return myobj;
+    return Object.assign(parentObj, {description});
+
 }
 
 export const createTodoElement = function(title, description = "", dueDate = null, priority = "low"){;
-    const myobj = {dueDate, priority};
-    Object.assign(myobj, createCheckElement(title, description));
-    myobj.type = "todoElement";
-    myobj.toString = function(){
-           return `${myobj.title} is a ${myobj.type}\nId: ${myobj.getId()}\nDueDate: ${myobj.dueDate}\nPriority: ${myobj.priority}\nDescription: ${myobj.description}`
+    const parentObj = createCheckElement(title, description);
+    const type = "todoElement";
+
+    parentObj.toString = function(){
+           return `${parentObj.title} is a ${parentObj.type}\nId: ${parentObj.getId()}\nDueDate: ${parentObj.dueDate}\nPriority: ${parentObj.priority}\nDescription: ${parentObj.description}`
         }
 
-    return myobj;
+    return Object.assign(parentObj, {dueDate, priority, type});
 }
