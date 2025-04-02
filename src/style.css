@@ -115,6 +115,9 @@ body {
     background-color: var(--secondary-);
     color: var(--h2);
     box-shadow: rgba(41, 41, 41, 0.20) 2px 2px 5px 1px;
+    transition: all 150ms;
+
+    cursor: pointer;
 }
 
 .newElementButton:active{
