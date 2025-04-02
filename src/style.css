@@ -123,6 +123,8 @@ body {
 
     .list{
         margin-bottom: var(--m);
+        text-wrap: nowrap;
+        overflow: hidden;
     }
 
     .todolist::after{
@@ -199,5 +201,10 @@ input[type = "checkbox"]{
         top: 0.90rem;
     }
 
-    
+    .elemSectTitle{
+        text-wrap: nowrap;
+        justify-self: center;
+        color: var(--action);
+        margin-bottom: var(--m);
+    }
 }
