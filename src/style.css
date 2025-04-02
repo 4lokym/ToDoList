@@ -62,6 +62,11 @@
 
 }
 
+.clickable:hover{
+    filter: opacity(80%);
+    cursor: pointer;
+}
+
 
 body {
     display: grid;
@@ -78,6 +83,7 @@ body {
 .main_window {
     font-size: var(--l);
     padding: var(--xxs);
+    padding-right: var(--xs);
     grid-row: 2/3;
     grid-column: 2/3;
     background-color: var(--h4);
@@ -99,14 +105,39 @@ body {
     width: max(150px, 30%);
     background-color: var(--secondary);
     box-shadow: rgba(41, 41, 41, 0.20) 2px 0px 5px 1px;
-    padding: var(--xxs);
+    padding: var(--s);
     color: var(--h4);
+    font-size: var(--m);
+    
+
+    .overflow-container{
+        overflow: hidden;
+    }
+    .list::after{
+        font-size: var(--xxs);
+        color: inherit;
+        padding-left: var(--xxs);
+        opacity: 70%;
+
+    }
+
+    .list{
+        margin-bottom: var(--m);
+    }
+
+    .todolist::after{
+        content: "todos";
+    }
+    .checklist::after{
+        content: "checks";
+    }
+    .notelist::after{
+        content: "notes";
+    }
 
 }
 
-.group_button{
 
-}
 
 .newElementButton{
     position: absolute;
@@ -128,9 +159,6 @@ body {
 .newElementButton:active{
     box-shadow: none;
 }
-.newElementButton:hover{
-    filter: opacity(90%);
-}
 
 .elementsSection::selection{
     color: inherit;
@@ -139,12 +167,17 @@ body {
 input[type = "checkbox"]{
     cursor: pointer;
 }
+
+
 .elementsSection{
     padding: var(--s);
     grid-column: 2/3;
+    text-wrap: none;
+    overflow:hidden;
     
-    
-    
+    .anElement{
+        min-width: 200px;
+    }
 
     .line{
         height: 1px;
@@ -157,10 +190,6 @@ input[type = "checkbox"]{
         font-size: var(--s);
         color: var(--action);
         font-weight: 520;
-    }
-    .arrowDown:hover{
-        filter: opacity(50%);
-        cursor: pointer;
     }
 
     .arrowDown{
