@@ -11,8 +11,11 @@ export const createCheckElement = function(title, description = ""){;
     parentObj.toString = function(){
         return `${parentObj.title} is a ${parentObj.type}\nId: ${parentObj.getId()}\nDescription: ${description}`
     }
+    const changeDescription = function(new_description){
+        description = new_description;
+    }
     
-    return Object.assign(parentObj, {description});
+    return Object.assign(parentObj, {description, changeDescription});
 
 }
 

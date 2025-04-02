@@ -8,8 +8,11 @@ export const baseElement = function(title, type = ""){
     const getId = function(){
         return id;
     }
+    const changeTitle = function(newTitle){
+        title = newTitle;
+    }
 
-    return {title, getId, type, toString};
+    return {title, getId, type, toString, changeTitle};
 }
 
 export const baseList = function(title, type, list){
