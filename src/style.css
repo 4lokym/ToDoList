@@ -1,3 +1,64 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    /* neutralcolor */
+    --b4 : #212529;
+    --b3 : #343A40;
+    --b2 : #495057;
+    --b : #6C757D;
+    --hb : #ADB5BD;
+    --h : #CED4DA;
+    --h2 : #DEE2E6;
+    --h3 : #E9ECEF;
+    --h4 : #F8F9FA;
+
+    /* font size */
+
+    --xxxs : 0.25rem; /* 4px */
+    --xxs : 0.5rem; /* 8px */
+    --xs : 0.75rem; /* 12px */
+    --s : 1rem; /* 16px */
+    --m : 1.25rem; /* 20px */
+    --l : 1.75rem; /* 28px */
+    --xl : 2.5rem; /* 40px */
+    --xxl : 3.75rem; /* 60px */
+    --xxxl : 6.25rem; /* 100px */
+
+    /* character color */
+
+    --secondary: #2B3A67;
+    --secondary-: #6D7788;
+    --secondary--: #AEB4A9;
+    --middle: #E0C1B3;
+    --action--: #D89A9E;
+    --action-: #CE8C98;
+    --action: #C37D92;
+
+
+}
+
 body{
-    background-color: red;
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 60%) 1fr;
+    grid-template-rows: 1fr minmax(200px, 80%) 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+
+    background-color: var(--middle);
+}
+.main_window{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    background-color: var(--h4);
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 20px;
+    box-shadow: var(--b) 1px 1px 8px;
 }
