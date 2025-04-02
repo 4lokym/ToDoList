@@ -66,6 +66,9 @@
     filter: opacity(80%);
     cursor: pointer;
 }
+.hidden{
+    display: none;
+}
 
 
 body {
@@ -168,6 +171,7 @@ body {
 
 input[type = "checkbox"]{
     cursor: pointer;
+    margin-right: var(--xs);
 }
 
 
@@ -177,28 +181,38 @@ input[type = "checkbox"]{
     text-wrap: none;
     overflow:hidden;
     
+    .description{
+        font-size: var(--xs);
+        color: var(--action--);
+        margin-left: var(--l);
+        margin-top: var(--xxs);
+        line-height: var(--m);
+        margin-bottom: var(--l);
+    }
+    .lineText{
+        display:flex;
+        width: 100%;
+    }
+    .dueDate{
+        margin-left: auto;
+    }
+
+    .topText{
+        font-size: var(--s);
+        color: var(--action);
+    }
+
     .anElement{
         min-width: 200px;
     }
 
     .line{
         height: 1px;
-        width: calc(100% - var(--m));
-        margin-left: var(--m);
         background-color: var(--middle);
     }
 
-    label.titleLabel{
-        font-size: var(--s);
-        color: var(--action);
+    label.titleLable{
         font-weight: 520;
-    }
-
-    .arrowDown{
-        color: var(--action);
-        font-size: var(--l);
-        position: relative;
-        top: 0.90rem;
     }
 
     .elemSectTitle{
