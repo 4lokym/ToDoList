@@ -1,6 +1,7 @@
 import "./style.css";
 import * as ext from "./barrel.js"
- 
+
+//TO-DO make the description pop up when clicked on the title, and disappear when clicked again
 
 const myNote = ext.createTodoElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
 
@@ -56,8 +57,14 @@ const addToDomTools = function(){
     const dueDate = function(date){
         const dueDate = document.createElement("span");
         dueDate.classList.add("dueDate", "topText");
-        dueDate.textContent = date ? "Due date: " + date : "";
+        dueDate.textContent = date ? date : "";
         return dueDate;
+    }
+    const priority = function(priority){
+        const priority_var = document.createElement("span");
+        priority_var.classList.add("priority", "topText");
+        priority_var.textContent = priority;
+        return priority_var;
     }
 
     const line = function(){
@@ -78,16 +85,24 @@ const addToDomTools = function(){
         const line_text = lineText();
         line_text.appendChild(checkbox());
         line_text.appendChild(title(element.title));
-        line_text.appendChild(dueDate(element.dueDate));
         element_container.appendChild(line_text);
         element_container.appendChild(line());
         element_container.appendChild(description(element.description))
         elemetsSection.appendChild(element_container);
+        return element_container;
+    }
+
+    const addToDoElement_d = function(element){
+        const element_container = addCheckElement_d(element);
+        const linetext = element_container.querySelector(".lineText");
+        linetext.append(priority(element.priority));
+        linetext.append(dueDate(element.dueDate));
+        return element_container;
     }
     
-    return {checkbox, title, element_container: elementContainer, line, addCheckElement_d}
+    return {checkbox, title, element_container: elementContainer, line, addCheckElement_d, addToDoElement_d}
 }();
 
-addToDomTools.addCheckElement_d(myNote);
-addToDomTools.addCheckElement_d(myNote);
-addToDomTools.addCheckElement_d(myNote);
+addToDomTools.addToDoElement_d(myNote);
+addToDomTools.addToDoElement_d(myNote);
+addToDomTools.addToDoElement_d(myNote);

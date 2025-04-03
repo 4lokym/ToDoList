@@ -5,6 +5,23 @@
     font-stretch: 62.5% 100%;
 }
 
+@media only screen and (max-width: 700px) {
+    .priorityRow,
+    .dueDateRow,
+    .priority,
+    .dueDate{
+        display: none;
+    }
+
+    
+}
+
+@media only screen and (max-width: 900px) {
+    .dueDateRow,
+    .dueDate{
+        display: none;
+    }
+}
 
 * {
     margin: 0px;
@@ -73,7 +90,7 @@
 
 body {
     display: grid;
-    grid-template-columns: 1fr minmax(300px, 60%) 1fr;
+    grid-template-columns: 1fr minmax(400px, 60%) 1fr;
     grid-template-rows: 1fr minmax(200px, 80%) 1fr;
     align-items: center;
     justify-content: center;
@@ -114,7 +131,7 @@ body {
     
 
     .overflow-container{
-        overflow: hidden;
+        overflow: auto;
     }
     .list::after{
         font-size: var(--xxs);
@@ -127,7 +144,7 @@ body {
     .list{
         margin-bottom: var(--m);
         text-wrap: nowrap;
-        overflow: hidden;
+        overflow: auto;
     }
 
     .todolist::after{
@@ -179,7 +196,17 @@ input[type = "checkbox"]{
     padding: var(--s);
     grid-column: 2/3;
     text-wrap: none;
-    overflow:hidden;
+    overflow: auto;
+    display: grid;
+
+    grid-template-rows:  var(--xl);
+    grid-auto-rows: auto;
+    gap: var(--s);
+
+    height: min-content;
+    .priorityRow{
+        grid-column: 2/3;
+    }
     
     .description{
         font-size: var(--xs);
@@ -204,6 +231,7 @@ input[type = "checkbox"]{
 
     .anElement{
         min-width: 200px;
+        grid-column: 1/-1;
     }
 
     .line{
@@ -219,6 +247,16 @@ input[type = "checkbox"]{
         text-wrap: nowrap;
         justify-self: center;
         color: var(--action);
-        margin-bottom: var(--m);
+    }
+
+    .priority{
+        margin-left: auto;
+    }
+    
+    
+    
+    .columnHeader{
+        font-size: var(--xs);
+        color: var(--action--);
     }
 }
