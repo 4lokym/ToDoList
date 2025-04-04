@@ -1,4 +1,4 @@
-export const addToDomTools = function(){
+export const addBaseElementToDom = function(){
 
     const elemetsSection = document.querySelector(".elementsSection");
     
@@ -81,3 +81,33 @@ export const addToDomTools = function(){
     
     return {addCheckElement_d, addToDoElement_d}
 }();
+
+export const addListToDom = function(){
+    
+    const overflow_container = document.querySelector(".overflow-container");
+
+    const baseList = function(list){
+        const list_var = document.createElement("div");
+        list_var.classList.add("list", "clickable");
+        list_var.textContent = list.title;
+        overflow_container.appendChild(list_var);
+        return list_var;
+    } 
+
+    const todoList = function(list){
+        const list_var = baseList(list);
+        list_var.classList.add("todolist")
+    }
+
+    const checkList = function(list){
+        const list_var = baseList(list);
+        list_var.classList.add("checklist")
+    }
+
+    const noteList = function(list){
+        const list_var = baseList(list);
+        list_var.classList.add("notelist")
+    }
+    
+    return {todoList, noteList, checkList};
+}()
