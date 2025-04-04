@@ -59,7 +59,7 @@ export const addBaseElementToDom = function(){
         return description_var;
     }
 
-    const addCheckElement_d = function(element){
+    const addCheck = function(element){
         const element_container = elementContainer();
         const line_text = lineText();
         line_text.appendChild(checkbox());
@@ -71,43 +71,43 @@ export const addBaseElementToDom = function(){
         return element_container;
     }
 
-    const addToDoElement_d = function(element){
-        const element_container = addCheckElement_d(element);
+    const addTodo = function(element){
+        const element_container = addCheck(element);
         const linetext = element_container.querySelector(".lineText");
         linetext.append(priority(element.priority));
         linetext.append(dueDate(element.dueDate));
         return element_container;
     }
+
+    const addElement = function(element){
+        switch (element.type) {
+            case "todoElement":
+                addTodo(element);
+                break;
+            case "checkElement":
+                addCheck(element);
+                break;
+        
+            default:
+                console.log("the inserted type doesn't exist");
+                break;
+        }
+    }
     
-    return {addCheckElement_d, addToDoElement_d}
+    return {addCheck, addTodo, addElement}
 }();
 
 export const addListToDom = function(){
     
     const overflow_container = document.querySelector(".overflow-container");
 
-    const baseList = function(list){
+    const addList = function(list){
         const list_var = document.createElement("div");
-        list_var.classList.add("list", "clickable");
+        list_var.classList.add("list", "clickable", `${list.type}`);
         list_var.textContent = list.title;
         overflow_container.appendChild(list_var);
         return list_var;
     } 
-
-    const todoList = function(list){
-        const list_var = baseList(list);
-        list_var.classList.add("todolist")
-    }
-
-    const checkList = function(list){
-        const list_var = baseList(list);
-        list_var.classList.add("checklist")
-    }
-
-    const noteList = function(list){
-        const list_var = baseList(list);
-        list_var.classList.add("notelist")
-    }
     
-    return {todoList, noteList, checkList};
+    return {addList};
 }()

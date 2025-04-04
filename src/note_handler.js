@@ -1,6 +1,6 @@
 import * as ext from "./barrel.js";
 
-export const createNoteList = (title, list = {}) => ext.baseList(title, "noteList", list);
+export const createNoteList = (title, list = {}) => ext.baseList(title, "notelist", list);
 
 export const createNoteElement = function(title, text = ""){;
     const parentObj = ext.baseElement(title, "noteElement");

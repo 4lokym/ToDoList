@@ -1,8 +1,8 @@
 import * as ext from "./barrel.js";
 
 
-export const createCheckList = (title, list = {}) => ext.baseList(title, "checkList", list);
-export const createTodoList = (title, list = {}) => ext.baseList(title, "todoList", list);
+export const createCheckList = (title, list = {}) => ext.baseList(title, "checklist", list);
+export const createTodoList = (title, list = {}) => ext.baseList(title, "todolist", list);
 
 
 export const createCheckElement = function(title, description = ""){;
