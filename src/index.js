@@ -5,7 +5,8 @@ import * as ext from "./barrel.js"
 
 const myNote = ext.createTodoElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
 const myList = ext.createCheckList("New todos");
-
+myList.addToList(myNote);
+console.log(myList.getList());
 
 // const my_list = ext.createTodoList("my_list");
 // console.log(my_list.toString());

@@ -15,12 +15,9 @@ export const baseElement = function(title, type = ""){
     return {title, getId, type, toString, changeTitle};
 }
 
-export const baseList = function(title, type, list){
+export const baseList = function(title, type){
     const parent_obj = baseElement(title, type);
-
-    if(typeof list !== typeof {}){
-        throw new Error("baselist() takes only objects as an argument");
-    }
+    const list  ={};
 
     let list_lenght = Object.entries(list).length;
 

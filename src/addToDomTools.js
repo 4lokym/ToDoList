@@ -93,18 +93,47 @@ export const addBaseElementToDom = function(){
                 break;
         }
     }
+
+    const addAllFromList = function (listElem){
+        const list = listElem.getList();
+        if(listElem.getListLength() >0){
+            for (let key in list){
+                addElement(list[key]);
+            }
+        }
+    }
+
+    const removeAllElements = function(){
+        
+        const allElements = elemetsSection.querySelectorAll(".anElement");
+        if(!!allElements.length){
+            allElements.forEach(element => {
+                element.remove();   
+            });
+        }
+    }
     
-    return {addCheck, addTodo, addElement}
+    return {addCheck, addTodo, addElement, addAllFromList, removeAllElements}
 }();
 
 export const addListToDom = function(){
     
     const overflow_container = document.querySelector(".overflow-container");
 
+    const changePageTitle = function(title){
+        const elem_title = overflow_container.parentNode.parentNode.querySelector(".elemSectTitle");
+        elem_title.textContent = title;
+    }
+
     const addList = function(list){
         const list_var = document.createElement("div");
         list_var.classList.add("list", "clickable", `${list.type}`);
         list_var.textContent = list.title;
+        list_var.addEventListener("click", (event) =>{
+            changePageTitle(list.title);
+            addBaseElementToDom.removeAllElements();
+            addBaseElementToDom.addAllFromList(list);
+        });
         overflow_container.appendChild(list_var);
         return list_var;
     } 
