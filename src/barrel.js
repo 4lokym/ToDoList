@@ -1,4 +1,4 @@
 export * from "./baseElement.js"
 export * from "./note_handler.js"
 export * from "./todo_handler.js"
-export * from "./addToDomTools.js"
+export * from "./domAdder.js"

@@ -3,10 +3,16 @@ import * as ext from "./barrel.js"
 
 //TO-DO make the description pop up when clicked on the title, and disappear when clicked again
 
-const myNote = ext.createTodoElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
+const myNote = ext.createCheckElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
 const myList = ext.createCheckList("New todos");
 myList.addToList(myNote);
-console.log(myList.getList());
+const mytodo = ext.createTodoElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
+const myTodoList = ext.createTodoList("New todos");
+myTodoList.addToList(mytodo);
+const mycheck = ext.createCheckElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
+const myCheckList = ext.createCheckList("New todos");
+myCheckList.addToList(mycheck);
+
 
 // const my_list = ext.createTodoList("my_list");
 // console.log(my_list.toString());
@@ -22,8 +28,8 @@ console.log(myList.getList());
 
 
 
-ext.addBaseElementToDom.addElement(myNote);
-ext.addBaseElementToDom.addElement(myNote);
-ext.addBaseElementToDom.addElement(myNote);
 
-ext.addListToDom.addList(myList);
+ext.domAdder.addList(myList);
+ext.domAdder.addList(myTodoList);
+ext.domAdder.addList(myCheckList);
+

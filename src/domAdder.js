@@ -1,6 +1,7 @@
-export const addBaseElementToDom = function(){
+export const domAdder = function(){
 
     const elemetsSection = document.querySelector(".elementsSection");
+    const overflow_container = document.querySelector(".overflow-container");
     
     const elementContainer = function(){
         const element_container = document.createElement("div");
@@ -113,15 +114,8 @@ export const addBaseElementToDom = function(){
         }
     }
     
-    return {addCheck, addTodo, addElement, addAllFromList, removeAllElements}
-}();
-
-export const addListToDom = function(){
-    
-    const overflow_container = document.querySelector(".overflow-container");
-
     const changePageTitle = function(title){
-        const elem_title = overflow_container.parentNode.parentNode.querySelector(".elemSectTitle");
+        const elem_title = elemetsSection.querySelector(".elemSectTitle");
         elem_title.textContent = title;
     }
 
@@ -131,12 +125,32 @@ export const addListToDom = function(){
         list_var.textContent = list.title;
         list_var.addEventListener("click", (event) =>{
             changePageTitle(list.title);
-            addBaseElementToDom.removeAllElements();
-            addBaseElementToDom.addAllFromList(list);
+            updatePageSubTitle(list.type);
+            domAdder.removeAllElements();
+            domAdder.addAllFromList(list);
         });
         overflow_container.appendChild(list_var);
         return list_var;
-    } 
-    
-    return {addList};
-}()
+    }
+
+    const changePageSubTitle = function(subTitle){
+        const columnHeader = elemetsSection.querySelector(".columnHeader");
+        columnHeader.textContent = subTitle;
+    }
+
+    const updatePageSubTitle = function(type){
+        switch(type){
+            case "todolist":
+            changePageSubTitle("Title\\Priority\\Due date");
+            break;
+            case "checklist":
+            changePageSubTitle("Title");
+            break;
+            default:
+            throw new Error("The element type doesn't exist");
+        }
+    }
+
+
+    return {addCheck, addTodo, addElement, addAllFromList, removeAllElements, addList}
+}();
