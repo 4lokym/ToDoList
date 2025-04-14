@@ -30,6 +30,9 @@
     cursor:default;
 }
 
+.hidden{
+    display: none;
+}
 
 :root {
     font-family: "NotoSans", sans-serif;
@@ -259,4 +262,13 @@ input[type = "checkbox"]{
         font-size: var(--xs);
         color: var(--action--);
     }
+
+}
+
+.noteElement{
+    padding: var(--xxs);
+
+    background-color: var(--h4);
+    box-shadow: var(--h) 2px 2px 7px;
+    border-radius: var(--xxxs);
 }

@@ -60,6 +60,13 @@ export const domAdder = function(){
         return description_var;
     }
 
+    const text = function(text){
+        const description_var = document.createElement("div");
+        description_var.textContent = text;
+        description_var.classList.add("description");
+        return description_var;
+    }
+
     const addCheck = function(element){
         const element_container = elementContainer();
         const line_text = lineText();
@@ -80,6 +87,17 @@ export const domAdder = function(){
         return element_container;
     }
 
+    const addNote = function(element){
+        const element_container = elementContainer();
+        element_container.classList.add("noteElement");
+        const line_text = lineText();
+        line_text.appendChild(title(element.title));
+        element_container.appendChild(line_text);
+        element_container.appendChild(text(element.text));
+        elemetsSection.appendChild(element_container);
+        return element_container;
+    }
+
     const addElement = function(element){
         switch (element.type) {
             case "todoElement":
@@ -88,7 +106,9 @@ export const domAdder = function(){
             case "checkElement":
                 addCheck(element);
                 break;
-        
+            case "noteElement":
+                addNote(element);
+                break;
             default:
                 console.log("the inserted type doesn't exist");
                 break;
@@ -126,8 +146,8 @@ export const domAdder = function(){
         list_var.addEventListener("click", (event) =>{
             changePageTitle(list.title);
             updatePageSubTitle(list.type);
-            domAdder.removeAllElements();
-            domAdder.addAllFromList(list);
+            removeAllElements();
+            addAllFromList(list);
         });
         overflow_container.appendChild(list_var);
         return list_var;
@@ -146,11 +166,14 @@ export const domAdder = function(){
             case "checklist":
             changePageSubTitle("Title");
             break;
+            case "notelist":
+            changePageSubTitle("");    
+            break;
             default:
             throw new Error("The element type doesn't exist");
         }
     }
 
 
-    return {addCheck, addTodo, addElement, addAllFromList, removeAllElements, addList}
+    return {addCheck, addTodo, addElement, addAllFromList, removeAllElements, addList, addNote}
 }();

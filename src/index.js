@@ -3,9 +3,11 @@ import * as ext from "./barrel.js"
 
 //TO-DO make the description pop up when clicked on the title, and disappear when clicked again
 
-const myNote = ext.createCheckElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
-const myList = ext.createCheckList("New todos");
+const myNote = ext.createNoteElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve");
+const myList = ext.createNoteList("a Note");
 myList.addToList(myNote);
+console.log(myList);
+console.log(myList.getList());
 const mytodo = ext.createTodoElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve", "oggi");
 const myTodoList = ext.createTodoList("New todos");
 myTodoList.addToList(mytodo);
