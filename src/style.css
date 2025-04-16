@@ -27,7 +27,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    cursor:default;
+    outline: none;
 }
 
 .hidden{
@@ -164,7 +164,7 @@ body {
 
 
 
-.newElementButton{
+.newButton{
     position: absolute;
     bottom: var(--m);
     right: var(--m);
@@ -181,7 +181,7 @@ body {
     cursor: pointer;
 }
 
-.newElementButton:active{
+.newButton:active{
     box-shadow: none;
 }
 
@@ -272,3 +272,74 @@ input[type = "checkbox"]{
     box-shadow: var(--h) 2px 2px 7px;
     border-radius: var(--xxxs);
 }
+
+dialog{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    outline: none;
+    border: none;
+    border-radius: var(--s);
+    padding: var(--m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--m);
+
+    
+    .dialogTitle{
+        font-size: var(--l);
+        font-weight: bold;
+        align-self: center;
+    }
+
+    form{
+        display: grid;
+        gap: var(--m);
+
+        div{
+            display: grid;
+            grid-template-columns: 11ch 1fr;
+            gap: var(--m);
+
+            label{
+                justify-self: right;
+            }
+
+        }
+
+        button{
+            border-radius: var(--s);
+            border: none;
+            background-color: var(--b);
+            color: var(--h4);
+            padding: var(--s);
+
+        }
+
+        input,
+        select{
+            height: var(--l);
+            color: var(--b4);
+            background-color: var(--h);
+            border: none;
+            border-radius: var(--xxs);
+            padding: var(--xxxs);
+            cursor: pointer;
+        }
+
+    }
+
+    .input-text{
+        max-width: 100%;
+    }
+    textarea{
+        max-width: 100%;
+    }
+
+}
+
+dialog::backdrop{
+    backdrop-filter: brightness(80%);
+}
+

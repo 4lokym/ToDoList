@@ -1,6 +1,8 @@
 import "./style.css";
 import * as ext from "./barrel.js"
 
+
+
 //TO-DO make the description pop up when clicked on the title, and disappear when clicked again
 
 const myNote = ext.createNoteElement("Ivan va a studiare", "Ivan va a vedere i compiti e si mette a sudiare cio che gli serve");
@@ -35,3 +37,5 @@ ext.domAdder.addList(myList);
 ext.domAdder.addList(myTodoList);
 ext.domAdder.addList(myCheckList);
 
+
+document.querySelector(".newElemDialog").showModal();
