@@ -28,11 +28,8 @@ module.exports = {
             {
                 test: /\.(png|jpeg|jpg|gif|svg)$/i,
                 type: "asset/resource",
-            },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
-                loader: 'file-loader'
             }
+            
         ],
     },
 

@@ -1,5 +1,4 @@
 import "./style.css";
-import "./NotoSans-VariableFont_wdth,wght.woff2";
 import * as ext from "./barrel.js"
 
 

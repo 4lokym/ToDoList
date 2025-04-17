@@ -35,7 +35,7 @@
 }
 
 :root {
-    font-family: sans-serif;
+    font-family:"NotoSans", sans-serif;
 
     /* neutralcolor */
     --b4: #212529;
