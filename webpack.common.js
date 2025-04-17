@@ -30,8 +30,8 @@ module.exports = {
                 type: "asset/resource",
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/resource',
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+                loader: 'file-loader'
             }
         ],
     },
